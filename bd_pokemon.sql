@@ -45,6 +45,7 @@ primary key (Id_Tipo)
 create table Pokemon (
 Num_Pokedex int not null,
 Id_Tipo int not null,
+Id_Entrenador int not null,
 Nombre varchar (20) not null,
 Tipo varchar (20) not null,
 Altura varchar (6) not null,
@@ -80,6 +81,7 @@ add constraint fk_Region foreign key (Nombre_Reg) references Region (Nombre_Reg)
 alter table Entrenador
 add constraint fk_Pueblo foreign key (Nombre_Pue) references Pueblo (Nombre_Pue);
 alter table Pokemon
+add constraint fk_Entrenador foreign key (Id_Entrenador) references Entrenador (Id_Entrenador),
 add constraint fk_Tipo foreign key (Id_Tipo) references Tipo (Id_Tipo);
 alter table Tiene_Estadisticas
 add constraint fk_Estadisticas foreign key (Id_Stats) references Estadisticas (Id_Stats),
@@ -135,16 +137,16 @@ INSERT INTO Tipo VALUES ('3','Tierra');
 INSERT INTO Tipo VALUES ('4','Planta');
 INSERT INTO Tipo VALUES ('5','Agua');
 INSERT INTO Tipo VALUES ('6','Fuego');
-INSERT INTO Pokemon VALUES ('1','4','Bulbasaur','Planta','0,7','6,9');
-INSERT INTO Pokemon VALUES ('25','1','Pikachu','Electrico','0,4','6');
-INSERT INTO Pokemon VALUES ('4','6','Charmander','Fuego','0,6','8,5');
-INSERT INTO Pokemon VALUES ('658','5','Greninja','Agua','1,5','40');
-INSERT INTO Pokemon VALUES ('726','6','Torracat','Fuego','0,7','25');
-INSERT INTO Pokemon VALUES ('26','1','Raichu','Electrico','0,8','30');
-INSERT INTO Pokemon VALUES ('6','6','Charizard','Fuego','1,7','90,5');
-INSERT INTO Pokemon VALUES ('2','4','Ivysaur','Planta','1','13');
-INSERT INTO Pokemon VALUES ('727','6','Inceneroar','Fuego','1,8','83');
-INSERT INTO Pokemon VALUES ('5','6','Charmeleon','Fuego','1,1','19');
+INSERT INTO Pokemon VALUES ('1','4','1','Bulbasaur','Planta','0,7','6,9');
+INSERT INTO Pokemon VALUES ('25','1','5','Pikachu','Electrico','0,4','6');
+INSERT INTO Pokemon VALUES ('4','6','5','Charmander','Fuego','0,6','8,5');
+INSERT INTO Pokemon VALUES ('658','5','2','Greninja','Agua','1,5','40');
+INSERT INTO Pokemon VALUES ('726','6','3','Torracat','Fuego','0,7','25');
+INSERT INTO Pokemon VALUES ('26','1','4','Raichu','Electrico','0,8','30');
+INSERT INTO Pokemon VALUES ('6','6','2','Charizard','Fuego','1,7','90,5');
+INSERT INTO Pokemon VALUES ('2','4','5','Ivysaur','Planta','1','13');
+INSERT INTO Pokemon VALUES ('727','6','2','Inceneroar','Fuego','1,8','83');
+INSERT INTO Pokemon VALUES ('5','6','4','Charmeleon','Fuego','1,1','19');
 INSERT INTO Estadisticas VALUES ('1','65','85','50','90','80');
 INSERT INTO Estadisticas VALUES ('2','72','95','67','122','103');
 INSERT INTO Estadisticas VALUES ('3','45','49','49','45','65');
